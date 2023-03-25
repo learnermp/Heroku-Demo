@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Salary Prediction</title>
+   </head>
+   
+   <body>
+      <h1>Employee Salary Prediction</h1>
+      
+      <form action="{{ url_for('predict') }}" method="post">
+         <label for="exp">Enter years of experience:</label><br>
+         <input type="number" id="exp" name="exp"><br>
+         
+         <label for="test_score">Enter test score (out of 10):</label><br>
+         <input type="number" id="test_score" name="test_score"><br>
+         
+         <label for="interview_score">Enter interview score (out of 10):</label><br>
+         <input type="number" id="interview_score" name="interview_score"><br>
+         
+         <button type="submit" class="btn btn-primary">Predict Salary</button>
+      </form>
+
+      {% if prediction_text %}
+         <p> {{ prediction_text }} </p>
+      {% endif %}
+      
+   </body>
+</html>
