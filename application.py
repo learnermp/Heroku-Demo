@@ -7,11 +7,11 @@ app = Flask(__name__)
 # Load the model
 model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
     '''
     For rendering results on HTML GUI
@@ -25,4 +25,4 @@ def predict():
     return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
